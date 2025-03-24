@@ -1,0 +1,31 @@
+CREATE TABLE IF NOT EXISTS users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    hash_passw VARCHAR(255) NOT NULL,
+    activation_token VARCHAR(255) DEFAULT NULL,
+    active TINYINT(1) DEFAULT 0,
+    verified_at DATETIME DEFAULT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_at DATETIME DEFAULT NULL
+);
+
+CREATE TABLE IF NOT EXISTS users_sessions (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT UNSIGNED NOT NULL,
+    login_token VARCHAR(255) NOT NULL,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    );
+
+CREATE TABLE IF NOT EXISTS tasks (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT UNSIGNED NOT NULL,
+    title VARCHAR(255) DEFAULT NULL,
+    description TEXT NOT NULL,
+    status ENUM('pending', 'in progress', 'completed') NOT NULL,
+    is_deleted TINYINT(1) UNSIGNED DEFAULT 0,
+    due_at DATETIME DEFAULT NULL,
+    version INT UNSIGNED DEFAULT 1,
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    deleted_at DATETIME DEFAULT NULL,
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
+);

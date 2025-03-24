@@ -116,7 +116,7 @@ migrate -path=./migrations -database "mysql://root:password@tcp(127.0.0.1:3306)/
 - **Register a new user:** `POST https://localhost:8000/register`
 - **Login:** `POST https://localhost:8000/login`
 - **Fetch tasks:** `GET https://localhost:8000/tasks`
-- **Get a task by ID:** `GET https://localhost:8000/tasks/id/:id`
+- **Get a task by ID:** `GET https://localhost:8000/tasks/:id`
 - **Create a task:** `POST https://localhost:8000/tasks`
 - **Update a task:** `PUT https://localhost:8000/tasks/update/:id`
 - **Soft delete a task:** `DELETE https://localhost:8000/tasks/delete/:id`
